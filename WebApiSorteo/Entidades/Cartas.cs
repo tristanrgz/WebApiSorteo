@@ -257,7 +257,7 @@ namespace WebApiSorteo.Entidades
                         }
                         break;
 
-                    case "El borracgo":
+                    case "El borracho":
                         if (Numero != 25)
                         {
                             {
