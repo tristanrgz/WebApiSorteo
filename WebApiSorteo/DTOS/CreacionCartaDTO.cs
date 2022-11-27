@@ -1,27 +1,25 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using WebApiSorteo.Validaciones;
-namespace WebApiSorteo.Entidades
+
+namespace WebApiSorteo.DTOS
 {
-    public class Cartas : IValidatableObject
+    public class CreacionCartaDTO :IValidatableObject
     {
-        public int Id { get; set; }
         [Required]
         [NombreCarta]
         public string Nombre { get; set; }
         [Required]
         [NumeroCarta]
-        public int Numero { get; set;}
+        public int numero { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (!string.IsNullOrEmpty(Nombre) && Numero != 0)
+            if(!string.IsNullOrEmpty(Nombre) && numero != 0)
             {
-
-
-                switch (Nombre)
+                switch(Nombre)
                 {
                     case "El gallo":
-                        if (Numero != 1)
+                        if (numero != 1)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -29,9 +27,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
-                    case "El diablito":
-                        if (Numero != 2)
+                    case "El diablo":
+                        if (numero != 2)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -39,9 +36,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La dama":
-                        if (Numero != 3)
+                        if (numero != 3)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -49,9 +45,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El catrin":
-                        if (Numero != 4)
+                        if (numero != 4)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -59,9 +54,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El paraguas":
-                        if (Numero != 5)
+                        if (numero != 5)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -69,9 +63,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La sirena":
-                        if (Numero != 6)
+                        if (numero != 6)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -79,9 +72,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La escalera":
-                        if (Numero != 7)
+                        if (numero != 7)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -89,9 +81,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
-                    case "La botella":
-                        if (Numero != 8)
+                    case "La Botella":
+                        if (numero != 8)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -99,9 +90,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El barril":
-                        if (Numero != 9)
+                        if (numero != 9)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -109,9 +99,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El arbol":
-                        if (Numero != 10)
+                        if (numero != 10)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -119,9 +108,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El melon":
-                        if (Numero != 11)
+                        if (numero != 11)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -129,9 +117,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El valiente":
-                        if (Numero != 12)
+                        if (numero != 12)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -139,9 +126,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El gorrito":
-                        if (Numero != 13)
+                        if (numero != 13)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -149,9 +135,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La muerte":
-                        if (Numero != 14)
+                        if (numero != 14)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -159,9 +144,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La pera":
-                        if (Numero != 15)
+                        if (numero != 18)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -169,9 +153,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La bandera":
-                        if (Numero != 16)
+                        if (numero != 17)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -179,9 +162,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El bandolon":
-                        if (Numero != 17)
+                        if (numero != 17)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -189,9 +171,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El violoncello":
-                        if (Numero != 18)
+                        if (numero != 18)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -199,9 +180,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
-                    case "La Garza":
-                        if (Numero != 19)
+                    case "La garza":
+                        if (numero != 10)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -209,9 +189,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El pajaro":
-                        if (Numero != 20)
+                        if (numero != 20)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -219,9 +198,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
-                    case "la mano":
-                        if (Numero != 21)
+                    case "La mano":
+                        if (numero != 21)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -229,9 +207,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La bota":
-                        if (Numero != 22)
+                        if (numero != 22)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -239,9 +216,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La luna":
-                        if (Numero != 23)
+                        if (numero != 23)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -249,9 +225,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
-                    case "El Cotorro":
-                        if (Numero != 24)
+                    case "El cotorro":
+                        if (numero != 24)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -259,9 +234,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El borracho":
-                        if (Numero != 25)
+                        if (numero != 25)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -269,9 +243,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El negrito":
-                        if (Numero != 26)
+                        if (numero != 26)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -279,9 +252,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El corazon":
-                        if (Numero != 27)
+                        if (numero != 27)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -289,9 +261,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La sandia":
-                        if (Numero != 28)
+                        if (numero != 28)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -299,9 +270,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
-                    case "El tambor":
-                        if (Numero != 29)
+                    case "La tambor":
+                        if (numero != 29)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -309,9 +279,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El camaron":
-                        if (Numero != 30)
+                        if (numero != 30)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -319,9 +288,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "Las jaras":
-                        if (Numero != 31)
+                        if (numero != 31)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -329,9 +297,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El musico":
-                        if (Numero != 32)
+                        if (numero != 32)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -339,9 +306,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La araña":
-                        if (Numero != 33)
+                        if (numero != 33)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -349,9 +315,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El soldado":
-                        if (Numero != 34)
+                        if (numero != 34)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -359,9 +324,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La estrella":
-                        if (Numero != 35)
+                        if (numero != 35)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -369,9 +333,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El venado":
-                        if (Numero != 36)
+                        if (numero != 36)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -379,9 +342,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El mundo":
-                        if (Numero != 37)
+                        if (numero != 37)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -389,9 +351,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El apache":
-                        if (Numero != 30)
+                        if (numero != 38)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -399,9 +360,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El nopal":
-                        if (Numero != 39)
+                        if (numero != 39)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -409,9 +369,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El alacran":
-                        if (Numero != 40)
+                        if (numero != 40)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -419,9 +378,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La rosa":
-                        if (Numero != 41)
+                        if (numero != 41)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -429,9 +387,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La calavera":
-                        if (Numero != 42)
+                        if (numero != 42)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -439,9 +396,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La campana":
-                        if (Numero != 43)
+                        if (numero != 43)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -449,9 +405,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El cantarito":
-                        if (Numero != 44)
+                        if (numero != 44)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -459,9 +414,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El sol":
-                        if (Numero != 45)
+                        if (numero != 45)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -469,19 +423,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
-                    case "El cazo":
-                        if (Numero != 46)
-                        {
-                            {
-                                yield return new ValidationResult("El numero y el nombre no corresponden",
-                                new String[] { nameof(Nombre) });
-                            }
-                        }
-                        break;
-
                     case "La corona":
-                        if (Numero != 47)
+                        if (numero != 47)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -489,9 +432,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La chalupa":
-                        if (Numero != 48)
+                        if (numero != 48)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -499,9 +441,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El pino":
-                        if (Numero != 49)
+                        if (numero != 49)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -509,9 +450,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El pescado":
-                        if (Numero != 50)
+                        if (numero != 50)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -519,9 +459,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La palma":
-                        if (Numero != 51)
+                        if (numero != 51)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -529,9 +468,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La maceta":
-                        if (Numero != 52)
+                        if (numero != 52)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -539,9 +477,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "El arpa":
-                        if (Numero != 53)
+                        if (numero != 53)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -549,9 +486,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     case "La rana":
-                        if (Numero != 54)
+                        if (numero != 54)
                         {
                             {
                                 yield return new ValidationResult("El numero y el nombre no corresponden",
@@ -559,9 +495,8 @@ namespace WebApiSorteo.Entidades
                             }
                         }
                         break;
-
                     default:
-                        yield return new ValidationResult("La Carta no existe dentro de la loteria mexicana",
+                        yield return new ValidationResult("La carta no existe dentro de la loteria mexicana",
                         new String[] { nameof(Nombre) });
                         break;
                 }
