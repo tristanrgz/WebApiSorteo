@@ -16,6 +16,8 @@ namespace WebApiSorteo.DTOS
         [Required]
         
         public DateTime Fecha_sorteo { get; set; }
+
+        public List<CreacionPremioDTO>? Premio { get; set; }
        
     }
 }

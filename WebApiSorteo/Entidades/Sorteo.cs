@@ -20,6 +20,9 @@ namespace WebApiSorteo.Entidades
         [Required]
         //Esta si es la fecha en que se efectua el sorteo
         public DateTime Fecha_Sorteo { get; set; }
-        
+        public List<ParticipantesCartasSorteo>? ParticipantesCartasSorteo { get; set; }
+        public List<Premios>? Premios { get; set; }
+        public string UserId { get; set; }
+
     }
 }
