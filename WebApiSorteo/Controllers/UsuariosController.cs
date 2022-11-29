@@ -52,7 +52,7 @@ namespace WebApiSorteo.Controllers
                 return BadRequest(result.Errors);
             }
         }
-        [AllowAnonymous]
+        
         [HttpPost("login")]
         public async Task<ActionResult<RespuestaDeAutenticacion>> Login(CredencialesDeUsuario credencialesUsuario)
         {
@@ -67,14 +67,14 @@ namespace WebApiSorteo.Controllers
                 return BadRequest("Login Incorrecto");
             }
         }
-        [HttpPost("DeclaracionDeEmpleados")]
+        [HttpPost("HacerAdministrador")]
         public async Task<ActionResult> HacerAdmin(EditarCoordinadores editar)
         {
             var usuario = await userManager.FindByNameAsync(editar.Nombres);
             await userManager.AddClaimAsync(usuario, new Claim("AdminClaim", "1"));
             return NoContent();
         }
-        [HttpPost("BajaDeEmpleados")]
+        [HttpPost("BajaDeAdministrador")]
         public async Task<ActionResult> QuitarAdmin(EditarCoordinadores editar)
         {
             var usuario = await userManager.FindByNameAsync(editar.Nombres);
