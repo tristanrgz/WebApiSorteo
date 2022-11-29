@@ -65,7 +65,7 @@ namespace WebApiSorteo.Controllers
                 return BadRequest("Login Incorrecto");
             }
         }
-        [HttpPost("DeclaracionEmpleados")]
+        [HttpPost("DeclaracionDeEmpleados")]
         public async Task<ActionResult> HacerAdmin(EditarCoordinadores editar)
         {
             var usuario = await userManager.FindByNameAsync(editar.Nombres);
@@ -80,7 +80,7 @@ namespace WebApiSorteo.Controllers
             return NoContent();
         }
 
-        [HttpGet("RenovarToken")]
+        [HttpGet("RenovacionDeToken")]
         public async Task<ActionResult<RespuestaDeAutenticacion>> Renovar()
         {
             var nombreclaim = HttpContext.User.Claims.Where(claim => claim.Type == "Nombre").FirstOrDefault();

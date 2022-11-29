@@ -22,9 +22,9 @@ namespace WebApiSorteo.Controllers
 
         public SorteoController(ApplicationDbContext dbContext, ILogger<SorteoController> logger, IMapper mapper)
         {
-            this.DbContext = dbContext;
-            this.logger = logger;
             this.mapper = mapper;
+            this.logger = logger;
+            this.DbContext = dbContext;
         }
         [HttpGet("ObtenerPremios/Sorteo/{id:int}", Name = "GetSorteo")]
         public async Task<ActionResult<SorteoDTOconPremios>> Get(int id)
@@ -131,6 +131,39 @@ namespace WebApiSorteo.Controllers
             logger.LogInformation(nuevaVista.ToString());
             return CreatedAtRoute("GetSorteo", new { id = nuevoElemento.Id }, nuevaVista);
         }
+        [HttpPatch("/ModificacionesRifa/{id:int}")]
+        public async Task<ActionResult> Patch(int id, JsonPatchDocument<SorteoPatchDTO> json)
+        {
+            if (json == null) { return BadRequest(); }
+            logger.LogInformation("Habia algo en el json patch");
+            logger.LogInformation(json.ToString());
+
+            var Sorteo = await DbContext.Sorteo.AnyAsync(x => x.Id == id);
+            logger.LogInformation("Se extrajo de la base de datos");
+            logger.LogInformation(Sorteo.ToString());
+
+
+            if (!Sorteo) { return BadRequest(); }
+            var SorteoDTO = mapper.Map<SorteoPatchDTO>(Sorteo);
+            logger.LogInformation("Se mapeo el elemento");
+            logger.LogInformation(SorteoDTO.ToString());
+            json.ApplyTo(SorteoDTO);
+
+            var IsValid = TryValidateModel(SorteoDTO);
+            if (!IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            logger.LogInformation("Se logro realizar el procedimiento de validacion");
+
+            mapper.Map(SorteoDTO, Sorteo);
+            logger.LogInformation("Se logro realizar el mapeo");
+
+            await DbContext.SaveChangesAsync();
+            return NoContent();
+        }
+        
+
         [HttpPost("/AsignacionDeCartas")]
         public async Task<ActionResult> PostCartas(CreacionCartaDTO cartasDTO)
         {
@@ -148,6 +181,7 @@ namespace WebApiSorteo.Controllers
             logger.LogInformation(nuevaVista.ToString());
             return CreatedAtRoute("GetSorteo", new { id = nuevoElemento.Id }, nuevaVista);
         }
+
         [HttpDelete("/EliminacionDeSorteo/{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {

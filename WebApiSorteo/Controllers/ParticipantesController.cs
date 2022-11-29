@@ -25,7 +25,11 @@ namespace WebApiSorteo.Controllers
         public async Task<ActionResult<ParticipantesDTO>> Get(int id)
         {
             var participantes = await DbContext.Participantes.FirstOrDefaultAsync(x => x.Id == id);
-            
+            var usuario = await DbContext.Users.FirstAsync(x => x.Id == participantes.UserId);
+            if (usuario == null)
+            {
+                return NotFound("El ususario correspondiente al particpante no fue encontrado");
+            }
             if (participantes == null)
             {
                 return BadRequest("El participante no fue encontrado");
@@ -72,14 +76,14 @@ namespace WebApiSorteo.Controllers
                 return BadRequest("No se hallo la Rifa");
             }
 
-            var elementoPartcipantes = await DbContext.Participantes.AnyAsync(x => x.Id == idParticipante);
-            if(!elementoSorteo)
+            var elementoParticipante = await DbContext.Participantes.AnyAsync(x => x.Id == idParticipante);
+            if(!elementoParticipante)
             {
                 return BadRequest("No se hallo el participante");
             }
 
             var elementoCarta = await DbContext.Cartas.AnyAsync(x => x.Id == idCarta);
-            if (!elementoSorteo)
+            if (!elementoCarta)
             {
                 return BadRequest("No se hallo la carta");
             }

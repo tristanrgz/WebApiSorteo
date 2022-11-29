@@ -13,6 +13,9 @@ namespace WebApiSorteo.Entidades
         [CreditCard]
         public string tarjeta_credito { get; set; }
         public string num_telefono { get; set; }
+        public List<ParticipantesCartasSorteo>? ParticipantesCartasSorteo { get; set; }
+        public string UserId { get; set; }
+        public IdentityUser? usuario { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

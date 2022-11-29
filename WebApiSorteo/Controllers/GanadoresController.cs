@@ -49,7 +49,7 @@ namespace WebApiSorteo.Controllers
             System.Console.WriteLine($"<{sorteo.ParticipantesCartasSorteo.Count}>");
             if (sorteo.ParticipantesCartasSorteo.Count != 54)
             {
-                return NotFound("No tienes los suficientes participantes");
+                return NotFound("No tienes los participantes suficientes");
             }
             var deck = await DbContext.Cartas.ToListAsync();
             var con = 6;
