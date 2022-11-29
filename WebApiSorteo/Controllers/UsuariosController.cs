@@ -28,6 +28,8 @@ namespace WebApiSorteo.Controllers
             this.configuration = configuration;
             this.logger = logger;
         }
+
+        [AllowAnonymous]
         [HttpPost("RegistroDeUsuarios")]
         public async Task<ActionResult<RespuestaDeAutenticacion>> Registrar(CredencialesDeUsuario credencialesUsuario)
         {
@@ -97,14 +99,14 @@ namespace WebApiSorteo.Controllers
             return await ConstruirToken(credenciales);
 
         }
-        private async Task<RespuestaDeAutenticacion> ConstruirToken(CredencialesDeUsuario credencialesUsuario)
+        private async Task<RespuestaDeAutenticacion> ConstruirToken(CredencialesDeUsuario credencialesDeUsuario)
         {
             var claims = new List<Claim>
             {
-                new Claim("Nombre", credencialesUsuario.Nombre),
-                new Claim("Email", credencialesUsuario.email)
+                new Claim("Nombre", credencialesDeUsuario.Nombre),
+                new Claim("Email", credencialesDeUsuario.email)
             };
-            var usuario = await userManager.FindByNameAsync(credencialesUsuario.Nombre);
+            var usuario = await userManager.FindByNameAsync(credencialesDeUsuario.Nombre);
             var claimsDB = await userManager.GetClaimsAsync(usuario);
 
             claims.AddRange(claimsDB);

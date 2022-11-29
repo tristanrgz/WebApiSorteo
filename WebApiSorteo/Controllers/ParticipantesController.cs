@@ -21,7 +21,7 @@ namespace WebApiSorteo.Controllers
             this.DbContext = context;
         }
 
-        [HttpGet("ObtenerCliente/{id:int]", Name = "ObtenerParticipante")]
+        [HttpGet("ObtenerCliente/{id:int}", Name = "ObtenerParticipante")]
         public async Task<ActionResult<ParticipantesDTO>> Get(int id)
         {
             var participantes = await DbContext.Participantes.FirstOrDefaultAsync(x => x.Id == id);
