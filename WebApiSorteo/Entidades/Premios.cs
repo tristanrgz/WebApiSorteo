@@ -13,7 +13,7 @@ namespace WebApiSorteo.Entidades
         public string Descripcion { get; set; }
         public int Nivel { get; set; }
         public int SorteoId { get; set; }
-        
+        public Sorteo? Sorteo { get; set; } 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (Nivel == 0)

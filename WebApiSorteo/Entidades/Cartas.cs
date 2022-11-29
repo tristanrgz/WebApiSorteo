@@ -12,12 +12,12 @@ namespace WebApiSorteo.Entidades
         [NumeroCarta]
         public int Numero { get; set;}
 
+        public List<ParticipantesCartasSorteo>? ParticipantesCartasSorteo { get; set; }
+
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (!string.IsNullOrEmpty(Nombre) && Numero != 0)
             {
-
-
                 switch (Nombre)
                 {
                     case "El gallo":

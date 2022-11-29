@@ -23,6 +23,7 @@ namespace WebApiSorteo.Entidades
         public List<ParticipantesCartasSorteo>? ParticipantesCartasSorteo { get; set; }
         public List<Premios>? Premios { get; set; }
         public string UserId { get; set; }
+        public IdentityUser Usuario { get; set; }
 
     }
 }

@@ -21,6 +21,6 @@ namespace WebApiSorteo
         public DbSet<Sorteo> Sorteo { get; set; }
         public DbSet<Premios> Premios { get; set; }
         public DbSet<Cartas> Cartas { get; set; }
-      public DbSet<ParticipantesCartasSorteo> ParticipantesCartasSorteo { get; set; }
+        public DbSet<ParticipantesCartasSorteo> ParticipantesCartasSorteo { get; set; }
     }
 }
