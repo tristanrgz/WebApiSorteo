@@ -52,7 +52,7 @@ namespace WebApiSorteo.Controllers
                 return BadRequest(result.Errors);
             }
         }
-        
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<ActionResult<RespuestaDeAutenticacion>> Login(CredencialesDeUsuario credencialesUsuario)
         {
@@ -67,6 +67,7 @@ namespace WebApiSorteo.Controllers
                 return BadRequest("Login Incorrecto");
             }
         }
+        [AllowAnonymous]
         [HttpPost("HacerAdministrador")]
         public async Task<ActionResult> HacerAdmin(EditarCoordinadores editar)
         {
